@@ -1,0 +1,52 @@
+{
+  "date": "2026-05-10",
+  "original_training_dataset": {
+    "path": "data/c2dm_public_2d.json",
+    "records": 494
+  },
+  "downloaded_expansion_dataset": {
+    "name": "ColabFit / Hugging Face JARVIS_C2DB",
+    "license": "CC-BY-4.0",
+    "source_url": "https://huggingface.co/datasets/colabfit/JARVIS_C2DB",
+    "original_data_link": "https://ndownloader.figshare.com/files/28682010",
+    "local_dir": "data/hf_colabfit_jarvis_c2db",
+    "raw_parquet": "data/hf_colabfit_jarvis_c2db/co/co_0.parquet",
+    "converted_json": "data/jarvis_c2db_colabfit_3520.json",
+    "converted_records": 3520
+  },
+  "merged_datasets": {
+    "all_elements_path": "data/expanded_2d_materials.json",
+    "all_elements_records": 3967,
+    "supported_elements_path": "data/expanded_2d_materials_supported.json",
+    "supported_elements_records": 1378,
+    "reason_for_supported_subset": "The current descriptor/generator has a focused HER element vocabulary; unsupported elements are kept in the full JSON but excluded from this retraining run to avoid noisy default element features."
+  },
+  "expanded_retraining": {
+    "status": "completed",
+    "data": "data/expanded_2d_materials_supported.json",
+    "checkpoint": "checkpoints/torch_gnn_diffusion_expanded.pt",
+    "output_dir": "results_expanded",
+    "device": "cuda",
+    "epochs": 420,
+    "batch_size": 96,
+    "samples": 240,
+    "graph_hidden_dim": 128,
+    "denoiser_hidden_dim": 320,
+    "timesteps": 140,
+    "learning_rate": 0.0008,
+    "guidance_scale": 0.035,
+    "final_loss": 0.09982963924606642,
+    "avg_abs_delta_g_h": 0.0008511937178807303,
+    "avg_stability_score": 0.8762485458460002,
+    "avg_synthesis_score": 0.9
+  },
+  "installed_tools": {
+    "jarvis-tools": "2026.4.2",
+    "pandas": "3.0.2",
+    "pyarrow": "24.0.0"
+  },
+  "notes": [
+    "Direct JARVIS Figshare Python downloads returned HTTP 403 in this network environment.",
+    "The ColabFit/Hugging Face mirror was used instead; its README cites the same C2DB publication and original Figshare data link."
+  ]
+}

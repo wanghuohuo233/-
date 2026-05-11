@@ -1,0 +1,37 @@
+&CONTROL
+  calculation = 'scf',
+  prefix = 'candidate_01_VCSe_relaxed',
+  pseudo_dir = './pseudos',
+  outdir = './tmp',
+  tstress = .true.,
+  tprnfor = .true.,
+/
+&SYSTEM
+  ibrav = 0,
+  nat = 3,
+  ntyp = 3,
+  ecutwfc = 35,
+  ecutrho = 280,
+  occupations = 'smearing',
+  smearing = 'mp',
+  degauss = 0.02,
+  assume_isolated = '2D',
+/
+&ELECTRONS
+  conv_thr = 1.0d-7,
+  mixing_beta = 0.35,
+/
+ATOMIC_SPECIES
+  C     12.0110 C.pbe-n-rrkjus_psl.1.0.0.UPF
+  Se    78.9710 Se.pbe-n-rrkjus_psl.1.0.0.UPF
+  V     50.9420 V.pbe-spnl-rrkjus_psl.1.0.0.UPF
+CELL_PARAMETERS angstrom
+      4.36760400     0.00000000     0.00000000
+     -2.18380200     3.78245602     0.00000000
+      0.00000000     0.00000000    18.00000000
+ATOMIC_POSITIONS angstrom
+  V      0.0000000000     0.0000000000     0.0187916465
+  C      2.1838020000     1.2608186700     0.9784402811
+  Se     2.1838020000     1.2608186700    -0.9972319276
+K_POINTS automatic
+  4 4 1 0 0 0

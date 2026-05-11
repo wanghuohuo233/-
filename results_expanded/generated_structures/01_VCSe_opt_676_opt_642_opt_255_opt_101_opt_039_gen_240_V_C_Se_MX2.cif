@@ -1,0 +1,18 @@
+data_opt_676_opt_642_opt_255_opt_101_opt_039_gen_240_V_C_Se_MX2
+_symmetry_space_group_name_H-M 'P 1'
+_symmetry_Int_Tables_number 1
+_cell_length_a 4.367604
+_cell_length_b 4.367604
+_cell_length_c 18.000000
+_cell_angle_alpha 90.000000
+_cell_angle_beta 90.000000
+_cell_angle_gamma 120.000000
+loop_
+_atom_site_label
+_atom_site_type_symbol
+_atom_site_fract_x
+_atom_site_fract_y
+_atom_site_fract_z
+V1 V 0.000000 0.000000 0.000000
+C2 C 0.666667 0.333333 0.080492
+Se3 Se 0.666667 0.333333 0.919508

@@ -1,0 +1,8 @@
+&INPUTPH
+  prefix = 'candidate_01_NbNSe_relaxed',
+  outdir = './tmp',
+  tr2_ph = 1.0d-14,
+  ldisp = .false.,
+  epsil = .false.,
+/
+0.0 0.0 0.0

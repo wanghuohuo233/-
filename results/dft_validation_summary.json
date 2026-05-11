@@ -1,0 +1,84 @@
+{
+  "date": "2026-05-10",
+  "engine": {
+    "code": "Quantum ESPRESSO",
+    "working_binary": "pw.x/ph.x from conda-forge qe=7.5 inside WSL UbuntuQE",
+    "failed_attempts": [
+      "Windows-native MSYS2 Quantum ESPRESSO crashed even on H2",
+      "Ubuntu apt quantum-espresso 6.7 crashed on H2/example inputs"
+    ],
+    "project_outputs": "validation_outputs/qe"
+  },
+  "common_settings": {
+    "functional": "PBE",
+    "pseudopotentials": "PSLibrary RRKJUS UPF files under pseudos/",
+    "ecutwfc_ry": 35,
+    "ecutrho_ry": 280,
+    "k_points": "4 4 1",
+    "isolation": "assume_isolated='2D'",
+    "delta_g_h_approximation": "DeltaG_H ~= E(surface+H)-E(surface)-0.5E(H2)+0.24 eV"
+  },
+  "reference": {
+    "h2_total_energy_ry": -2.32383790
+  },
+  "candidates": [
+    {
+      "name": "candidate_01_NbNSe",
+      "clean_scf_energy_ry": -159.37377802,
+      "h_adsorption_sites": [
+        {
+          "site": "top",
+          "h_ads_energy_ry": -160.4836514148,
+          "delta_e_h_ev": 0.7081158525,
+          "delta_g_h_approx_ev": 0.9481158525
+        }
+      ],
+      "gamma_phonon_cm_minus_1": [-275.758996, -275.758996, -11.684274, 6.031570, 6.031570, 160.253634, 160.253634, 241.432580, 495.851597],
+      "stability_conclusion": "rejected: large imaginary Gamma phonon modes",
+      "her_conclusion": "weak H adsorption after consistent clean-surface relaxation"
+    },
+    {
+      "name": "candidate_NbS2",
+      "clean_scf_energy_ry": -160.12132703,
+      "h_adsorption_sites": [
+        {
+          "site": "S_top",
+          "h_ads_energy_ry": -161.2557291727,
+          "delta_e_h_ev": 0.3743852358,
+          "delta_g_h_approx_ev": 0.6143852358
+        },
+        {
+          "site": "Nb_top",
+          "h_ads_energy_ry": -161.2477174987,
+          "delta_e_h_ev": 0.4833896137,
+          "delta_g_h_approx_ev": 0.7233896137
+        }
+      ],
+      "gamma_phonon_cm_minus_1": [20.932096, 21.233584, 23.191093, 200.446510, 200.548675, 241.466423, 241.770238, 348.913909, 381.013311],
+      "stability_conclusion": "passes Gamma phonon check in this lightweight setup",
+      "her_conclusion": "stable but HER is not close enough to 0 eV"
+    },
+    {
+      "name": "candidate_NbSSe",
+      "clean_scf_energy_ry": -159.98614113,
+      "h_adsorption_sites": [
+        {
+          "site": "Se_top",
+          "h_ads_energy_ry": -161.0808722040,
+          "delta_e_h_ev": 0.9141376224,
+          "delta_g_h_approx_ev": 1.1541376224
+        },
+        {
+          "site": "S_top",
+          "h_ads_energy_ry": -161.1239974813,
+          "delta_e_h_ev": 0.3273883337,
+          "delta_g_h_approx_ev": 0.5673883337
+        }
+      ],
+      "gamma_phonon_cm_minus_1": [-8.958851, -8.958851, -7.019213, 149.715325, 149.715325, 224.595548, 224.595549, 264.695279, 348.200016],
+      "stability_conclusion": "borderline: only small Gamma imaginary acoustic-like modes at this convergence level",
+      "her_conclusion": "best checked HER among the tested structures is S_top, but still positive"
+    }
+  ],
+  "overall_conclusion": "The ML surrogate successfully generated plausible 2D candidates and the QE workflow runs end-to-end. The first DFT checks show a gap between surrogate HER scores and PBE/QE adsorption energies; NbS2 is dynamically stable but HER is weak, NbNSe is dynamically unstable, and NbSSe is borderline stable with better but still positive HER. More data and active-learning retraining with DFT labels are recommended."
+}

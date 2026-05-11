@@ -1,0 +1,112 @@
+{
+  "date": "2026-05-11",
+  "mode": "lightweight DFT screening for expanded-retrain top-5 candidates",
+  "engine": {
+    "code": "Quantum ESPRESSO",
+    "version": "conda-forge qe=7.5 inside WSL UbuntuQE",
+    "outputs": "validation_outputs/qe_expanded"
+  },
+  "settings": {
+    "functional": "PBE",
+    "pseudopotentials": "PSLibrary RRKJUS UPF",
+    "clean_surface_energy_source": "01_relax final energy only when BFGS converged normally",
+    "h_adsorption_input": "03_h_ads_top_relaxed_stable.in or generated top-relaxed H input",
+    "phonon_input": "04_gamma_phonon.in or 04_gamma_phonon_relaxed.in",
+    "ecutwfc_ry": 35,
+    "ecutrho_ry_clean": 280,
+    "ecutrho_ry_h_adsorption": 420,
+    "k_points": "4 4 1",
+    "h2_total_energy_ry": -2.3238379,
+    "delta_g_h_approximation": "DeltaG_H ~= E(surface+H)-E(surface)-0.5E(H2)+0.24 eV"
+  },
+  "strict_screening_rules": [
+    "Only parse relaxed coordinates from an explicit ATOMIC_POSITIONS block inside Begin/End final coordinates.",
+    "Coordinate rows must be element symbol plus exactly three floating-point values.",
+    "Do not continue to SCF, H adsorption, or phonon when the clean relax reaches maximum steps without normal BFGS convergence.",
+    "Mark those candidates as relax_not_converged."
+  ],
+  "candidates": [
+    {
+      "rank": 1,
+      "name": "candidate_01_VCSe",
+      "formula": "VCSe",
+      "clean_relax_status": "converged",
+      "clean_relax_final_energy_ry": -178.3948940708,
+      "h_adsorption_final_energy_ry": -179.5433468023,
+      "delta_e_h_ev": 0.1832172364,
+      "delta_g_h_approx_ev": 0.4232172364,
+      "gamma_phonon_cm_minus_1": [
+        -432.679679,
+        -432.679679,
+        -96.331648,
+        -96.331648,
+        40.656766,
+        481.143043,
+        597.942569,
+        597.94257,
+        1195.674336
+      ],
+      "screening_conclusion": "rejected: HER is improved versus earlier checked candidates but still positive, and large imaginary Gamma modes indicate dynamic instability"
+    },
+    {
+      "rank": 2,
+      "name": "candidate_02_VCSe",
+      "formula": "VCSe",
+      "clean_relax_status": "relax_not_converged",
+      "reason": "maximum_relax_steps_reached",
+      "last_observed_total_force_ry_per_bohr": 0.00245,
+      "h_adsorption_final_energy_ry": null,
+      "delta_g_h_approx_ev": null,
+      "gamma_phonon_cm_minus_1": null,
+      "screening_conclusion": "rejected: clean relax did not converge normally; H adsorption and phonon were skipped by strict validation rules"
+    },
+    {
+      "rank": 3,
+      "name": "candidate_03_VNSe",
+      "formula": "VNSe",
+      "clean_relax_status": "relax_not_converged",
+      "reason": "maximum_relax_steps_reached",
+      "last_observed_total_force_ry_per_bohr": 0.007762,
+      "h_adsorption_final_energy_ry": null,
+      "delta_g_h_approx_ev": null,
+      "gamma_phonon_cm_minus_1": null,
+      "screening_conclusion": "rejected: clean relax did not converge normally; H adsorption and phonon were skipped by strict validation rules"
+    },
+    {
+      "rank": 4,
+      "name": "candidate_04_VSSe",
+      "formula": "VSSe",
+      "clean_relax_status": "converged",
+      "clean_relax_final_energy_ry": -187.3867850071,
+      "h_adsorption_final_energy_ry": -188.5096559524,
+      "delta_e_h_ev": 0.5312752411,
+      "delta_g_h_approx_ev": 0.7712752411,
+      "gamma_phonon_cm_minus_1": [
+        -917.330558,
+        -386.351944,
+        -386.351943,
+        140.647136,
+        174.636247,
+        174.636247,
+        289.12057,
+        839.873314,
+        839.873315
+      ],
+      "screening_conclusion": "rejected: HER is weak and large imaginary Gamma modes indicate dynamic instability"
+    },
+    {
+      "rank": 5,
+      "name": "candidate_05_VNSe",
+      "formula": "VNSe",
+      "clean_relax_status": "relax_not_converged",
+      "reason": "maximum_relax_steps_reached",
+      "last_observed_total_force_ry_per_bohr": 0.00376,
+      "h_adsorption_final_energy_ry": null,
+      "delta_g_h_approx_ev": null,
+      "gamma_phonon_cm_minus_1": null,
+      "screening_conclusion": "rejected: clean relax oscillated near 0.0035 Ry/Bohr and did not converge normally; H adsorption and phonon were skipped by strict validation rules"
+    }
+  ],
+  "best_qe_validated_candidate": null,
+  "summary": "Expanded surrogate top-5 did not produce a candidate satisfying both near-zero HER adsorption free energy and Gamma-point dynamic stability. The real QE labels expose a surrogate-to-DFT gap and should be used as hard negative/active-learning feedback for the next training round."
+}

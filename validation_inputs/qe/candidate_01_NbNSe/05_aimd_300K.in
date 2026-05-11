@@ -1,0 +1,46 @@
+&CONTROL
+  nstep = 1000,
+  dt = 20.0,
+  calculation = 'md',
+  prefix = 'candidate_01_NbNSe_aimd',
+  pseudo_dir = './pseudos',
+  outdir = './tmp',
+  tstress = .true.,
+  tprnfor = .true.,
+/
+&SYSTEM
+  ibrav = 0,
+  nat = 3,
+  ntyp = 3,
+  ecutwfc = 35,
+  ecutrho = 280,
+  occupations = 'smearing',
+  smearing = 'mp',
+  degauss = 0.02,
+  assume_isolated = '2D',
+/
+&ELECTRONS
+  conv_thr = 1.0d-7,
+  mixing_beta = 0.35,
+/
+&IONS
+  ion_dynamics = 'verlet',
+  tempw = 300,
+/
+&CELL
+  cell_dofree = '2Dxy',
+/
+ATOMIC_SPECIES
+  N     14.0070 N.pbe-n-rrkjus_psl.1.0.0.UPF
+  Nb    92.9060 Nb.pbe-spn-rrkjus_psl.1.0.0.UPF
+  Se    78.9710 Se.pbe-n-rrkjus_psl.1.0.0.UPF
+CELL_PARAMETERS angstrom
+      3.56717672     0.00000000     0.00000000
+     -1.78358836     3.08926566     0.00000000
+      0.00000000     0.00000000    18.00000000
+ATOMIC_POSITIONS angstrom
+  Nb     0.00000000     0.00000000     0.00000000
+  Se     1.78358836     1.02975522     1.17941686
+  N      1.78358836     1.02975522    -1.17941686
+K_POINTS automatic
+  2 2 1 0 0 0

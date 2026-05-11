@@ -1,0 +1,16 @@
+.venv/
+__pycache__/
+*.pyc
+tmp/
+*.tmp
+input_tmp.in
+*.bak
+*.pid*
+batch_screening.log
+.pytest_cache/
+.mypy_cache/
+*.egg-info/
+qe_scratch/
+*.save/
+*.wfc*
+*.mix*

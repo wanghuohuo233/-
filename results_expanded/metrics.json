@@ -1,0 +1,302 @@
+{
+  "backend": "torch_gnn_cuda",
+  "torch_version": "2.11.0+cu126",
+  "cuda_available": true,
+  "cuda_device": "NVIDIA GeForce RTX 3060 Laptop GPU",
+  "dataset_path": "data\\expanded_2d_materials_supported.json",
+  "dataset_size": 1378,
+  "descriptor_dim": 103,
+  "target_condition": {
+    "delta_g_h": 0.0,
+    "stability_score": 0.88,
+    "synthesis_score": 0.84
+  },
+  "baseline_seed_summary": {
+    "avg_abs_delta_g_h": 0.0026503059777885775,
+    "avg_stability_score": 0.6739675828634533,
+    "avg_synthesis_score": 0.5487500000000001,
+    "best_objective": 0.8414416004490554
+  },
+  "ours_summary": {
+    "avg_abs_delta_g_h": 0.0008511937178807303,
+    "avg_stability_score": 0.8762485458460002,
+    "avg_synthesis_score": 0.9,
+    "best_objective": 0.9439391543374099
+  },
+  "best_candidates": [
+    {
+      "rank": 1,
+      "name": "opt_676_opt_642_opt_255_opt_101_opt_039_gen_240_V_C_Se_MX2",
+      "formula": "VCSe",
+      "prototype": "MX2",
+      "properties": {
+        "delta_g_h": -0.00010499376311571868,
+        "thermodynamic_stability": 0.9583752474398066,
+        "kinetic_stability": 0.8048547349283002,
+        "stability_score": 0.8892910168096287,
+        "synthesis_score": 0.9,
+        "quality_score": 0.9420571876656233
+      },
+      "loss_terms": {
+        "her_loss": 0.00010499376311571868,
+        "stability_loss": 0.11070898319037126,
+        "synthesis_loss": 0.09999999999999998,
+        "total_loss": 0.05569145129102177
+      }
+    },
+    {
+      "rank": 2,
+      "name": "opt_642_opt_255_opt_101_opt_039_gen_240_V_C_Se_MX2",
+      "formula": "VCSe",
+      "prototype": "MX2",
+      "properties": {
+        "delta_g_h": -0.0001530578765136766,
+        "thermodynamic_stability": 0.9516290144837295,
+        "kinetic_stability": 0.7933081579470193,
+        "stability_score": 0.8803846290422099,
+        "synthesis_score": 0.9,
+        "quality_score": 0.9388909428866562
+      },
+      "loss_terms": {
+        "her_loss": 0.0001530578765136766,
+        "stability_loss": 0.11961537095779007,
+        "synthesis_loss": 0.09999999999999998,
+        "total_loss": 0.05874269390637519
+      }
+    },
+    {
+      "rank": 3,
+      "name": "opt_622_opt_563_opt_148_opt_020_gen_096_V_Se_O_MX2",
+      "formula": "VNSe",
+      "prototype": "MX2",
+      "properties": {
+        "delta_g_h": -0.00045722390139049576,
+        "thermodynamic_stability": 0.9702154072497379,
+        "kinetic_stability": 0.7602832565329609,
+        "stability_score": 0.8757459394271883,
+        "synthesis_score": 0.9,
+        "quality_score": 0.9364409771177288
+      },
+      "loss_terms": {
+        "her_loss": 0.00045722390139049576,
+        "stability_loss": 0.12425406057281174,
+        "synthesis_loss": 0.09999999999999998,
+        "total_loss": 0.06046584806742343
+      }
+    },
+    {
+      "rank": 4,
+      "name": "opt_511_opt_122_opt_010_gen_019_V_S_Se_MX2",
+      "formula": "VSSe",
+      "prototype": "MX2",
+      "properties": {
+        "delta_g_h": 2.5980408979754677e-06,
+        "thermodynamic_stability": 0.9460330232963609,
+        "kinetic_stability": 0.7767938214127565,
+        "stability_score": 0.8698753824487389,
+        "synthesis_score": 0.9,
+        "quality_score": 0.9357501607256321
+      },
+      "loss_terms": {
+        "her_loss": 2.5980408979754677e-06,
+        "stability_loss": 0.13012461755126115,
+        "synthesis_loss": 0.09999999999999998,
+        "total_loss": 0.062243617027059814
+      }
+    },
+    {
+      "rank": 5,
+      "name": "opt_689_opt_097_opt_032_gen_076_V_Se_S_MX2",
+      "formula": "VNSe",
+      "prototype": "MX2",
+      "properties": {
+        "delta_g_h": 0.0010610428746264545,
+        "thermodynamic_stability": 0.9731637012107929,
+        "kinetic_stability": 0.7707138468162974,
+        "stability_score": 0.8820612667332699,
+        "synthesis_score": 0.9,
+        "quality_score": 0.936860424820161
+      },
+      "loss_terms": {
+        "her_loss": 0.0010610428746264545,
+        "stability_loss": 0.1179387332667301,
+        "synthesis_loss": 0.09999999999999998,
+        "total_loss": 0.05860846989050893
+      }
+    },
+    {
+      "rank": 6,
+      "name": "opt_696_opt_496_opt_413_opt_166_opt_011_gen_019_V_S_Se_MX2",
+      "formula": "VSSe",
+      "prototype": "MX2",
+      "properties": {
+        "delta_g_h": -0.0012013571703523378,
+        "thermodynamic_stability": 0.9495399242134925,
+        "kinetic_stability": 0.796067908846135,
+        "stability_score": 0.8804775172981817,
+        "synthesis_score": 0.9,
+        "quality_score": 0.9359213884043669
+      },
+      "loss_terms": {
+        "her_loss": 0.0012013571703523378,
+        "stability_loss": 0.11952248270181831,
+        "synthesis_loss": 0.09999999999999998,
+        "total_loss": 0.05921429556038734
+      }
+    },
+    {
+      "rank": 7,
+      "name": "opt_710_opt_602_opt_219_opt_164_opt_006_gen_044_V_S_Se_MX2",
+      "formula": "VNS",
+      "prototype": "MX2",
+      "properties": {
+        "delta_g_h": 0.0007243639548595998,
+        "thermodynamic_stability": 0.9681392905095562,
+        "kinetic_stability": 0.7393926656456901,
+        "stability_score": 0.8652033093208165,
+        "synthesis_score": 0.9,
+        "quality_score": 0.9320912858226127
+      },
+      "loss_terms": {
+        "her_loss": 0.0007243639548595998,
+        "stability_loss": 0.13479669067918354,
+        "synthesis_loss": 0.09999999999999998,
+        "total_loss": 0.06417856952925502
+      }
+    },
+    {
+      "rank": 8,
+      "name": "opt_643_opt_255_opt_101_opt_039_gen_240_V_C_Se_MX2",
+      "formula": "VCS",
+      "prototype": "MX2",
+      "properties": {
+        "delta_g_h": 0.0002380458237126841,
+        "thermodynamic_stability": 0.9467745483227851,
+        "kinetic_stability": 0.7522701740834579,
+        "stability_score": 0.8592475799150878,
+        "synthesis_score": 0.9,
+        "quality_score": 0.9314603042824935
+      },
+      "loss_terms": {
+        "her_loss": 0.0002380458237126841,
+        "stability_loss": 0.14075242008491218,
+        "synthesis_loss": 0.09999999999999998,
+        "total_loss": 0.06597008482425223
+      }
+    },
+    {
+      "rank": 9,
+      "name": "opt_632_opt_487_opt_375_opt_262_opt_039_gen_240_V_C_Se_MX2",
+      "formula": "NbCSe",
+      "prototype": "MX2",
+      "properties": {
+        "delta_g_h": -0.0031340571977349404,
+        "thermodynamic_stability": 0.9610572077500142,
+        "kinetic_stability": 0.8058966591613829,
+        "stability_score": 0.8912349608851302,
+        "synthesis_score": 0.9,
+        "quality_score": 0.9340971462328176
+      },
+      "loss_terms": {
+        "her_loss": 0.0031340571977349404,
+        "stability_loss": 0.10876503911486979,
+        "synthesis_loss": 0.09999999999999998,
+        "total_loss": 0.0564844607539685
+      }
+    },
+    {
+      "rank": 10,
+      "name": "opt_302_opt_219_opt_164_opt_006_gen_044_V_S_Se_MX2",
+      "formula": "VNS",
+      "prototype": "MX2",
+      "properties": {
+        "delta_g_h": 0.0008541927794505112,
+        "thermodynamic_stability": 0.9671265290075631,
+        "kinetic_stability": 0.736446250093471,
+        "stability_score": 0.8633204034962216,
+        "synthesis_score": 0.9,
+        "quality_score": 0.9310796767045865
+      },
+      "loss_terms": {
+        "her_loss": 0.0008541927794505112,
+        "stability_loss": 0.13667959650377837,
+        "synthesis_loss": 0.09999999999999998,
+        "total_loss": 0.0648810753454209
+      }
+    }
+  ],
+  "saved_structures": [
+    {
+      "name": "opt_676_opt_642_opt_255_opt_101_opt_039_gen_240_V_C_Se_MX2",
+      "formula": "VCSe",
+      "cif": "results_expanded\\generated_structures\\01_VCSe_opt_676_opt_642_opt_255_opt_101_opt_039_gen_240_V_C_Se_MX2.cif",
+      "xyz": "results_expanded\\generated_structures\\01_VCSe_opt_676_opt_642_opt_255_opt_101_opt_039_gen_240_V_C_Se_MX2.xyz"
+    },
+    {
+      "name": "opt_642_opt_255_opt_101_opt_039_gen_240_V_C_Se_MX2",
+      "formula": "VCSe",
+      "cif": "results_expanded\\generated_structures\\02_VCSe_opt_642_opt_255_opt_101_opt_039_gen_240_V_C_Se_MX2.cif",
+      "xyz": "results_expanded\\generated_structures\\02_VCSe_opt_642_opt_255_opt_101_opt_039_gen_240_V_C_Se_MX2.xyz"
+    },
+    {
+      "name": "opt_622_opt_563_opt_148_opt_020_gen_096_V_Se_O_MX2",
+      "formula": "VNSe",
+      "cif": "results_expanded\\generated_structures\\03_VNSe_opt_622_opt_563_opt_148_opt_020_gen_096_V_Se_O_MX2.cif",
+      "xyz": "results_expanded\\generated_structures\\03_VNSe_opt_622_opt_563_opt_148_opt_020_gen_096_V_Se_O_MX2.xyz"
+    },
+    {
+      "name": "opt_511_opt_122_opt_010_gen_019_V_S_Se_MX2",
+      "formula": "VSSe",
+      "cif": "results_expanded\\generated_structures\\04_VSSe_opt_511_opt_122_opt_010_gen_019_V_S_Se_MX2.cif",
+      "xyz": "results_expanded\\generated_structures\\04_VSSe_opt_511_opt_122_opt_010_gen_019_V_S_Se_MX2.xyz"
+    },
+    {
+      "name": "opt_689_opt_097_opt_032_gen_076_V_Se_S_MX2",
+      "formula": "VNSe",
+      "cif": "results_expanded\\generated_structures\\05_VNSe_opt_689_opt_097_opt_032_gen_076_V_Se_S_MX2.cif",
+      "xyz": "results_expanded\\generated_structures\\05_VNSe_opt_689_opt_097_opt_032_gen_076_V_Se_S_MX2.xyz"
+    },
+    {
+      "name": "opt_696_opt_496_opt_413_opt_166_opt_011_gen_019_V_S_Se_MX2",
+      "formula": "VSSe",
+      "cif": "results_expanded\\generated_structures\\06_VSSe_opt_696_opt_496_opt_413_opt_166_opt_011_gen_019_V_S_Se_MX2.cif",
+      "xyz": "results_expanded\\generated_structures\\06_VSSe_opt_696_opt_496_opt_413_opt_166_opt_011_gen_019_V_S_Se_MX2.xyz"
+    },
+    {
+      "name": "opt_710_opt_602_opt_219_opt_164_opt_006_gen_044_V_S_Se_MX2",
+      "formula": "VNS",
+      "cif": "results_expanded\\generated_structures\\07_VNS_opt_710_opt_602_opt_219_opt_164_opt_006_gen_044_V_S_Se_MX2.cif",
+      "xyz": "results_expanded\\generated_structures\\07_VNS_opt_710_opt_602_opt_219_opt_164_opt_006_gen_044_V_S_Se_MX2.xyz"
+    },
+    {
+      "name": "opt_643_opt_255_opt_101_opt_039_gen_240_V_C_Se_MX2",
+      "formula": "VCS",
+      "cif": "results_expanded\\generated_structures\\08_VCS_opt_643_opt_255_opt_101_opt_039_gen_240_V_C_Se_MX2.cif",
+      "xyz": "results_expanded\\generated_structures\\08_VCS_opt_643_opt_255_opt_101_opt_039_gen_240_V_C_Se_MX2.xyz"
+    },
+    {
+      "name": "opt_632_opt_487_opt_375_opt_262_opt_039_gen_240_V_C_Se_MX2",
+      "formula": "NbCSe",
+      "cif": "results_expanded\\generated_structures\\09_NbCSe_opt_632_opt_487_opt_375_opt_262_opt_039_gen_240_V_C_Se_MX2.cif",
+      "xyz": "results_expanded\\generated_structures\\09_NbCSe_opt_632_opt_487_opt_375_opt_262_opt_039_gen_240_V_C_Se_MX2.xyz"
+    },
+    {
+      "name": "opt_302_opt_219_opt_164_opt_006_gen_044_V_S_Se_MX2",
+      "formula": "VNS",
+      "cif": "results_expanded\\generated_structures\\10_VNS_opt_302_opt_219_opt_164_opt_006_gen_044_V_S_Se_MX2.cif",
+      "xyz": "results_expanded\\generated_structures\\10_VNS_opt_302_opt_219_opt_164_opt_006_gen_044_V_S_Se_MX2.xyz"
+    }
+  ],
+  "training": {
+    "epochs": 420,
+    "batch_size": 96,
+    "final_loss": 0.09982963924606642,
+    "checkpoint": "checkpoints\\torch_gnn_diffusion_expanded.pt",
+    "graph_hidden_dim": 128,
+    "denoiser_hidden_dim": 320,
+    "timesteps": 140,
+    "learning_rate": 0.0008,
+    "weight_decay": 0.0001,
+    "guidance_scale": 0.035
+  }
+}

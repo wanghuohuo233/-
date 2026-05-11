@@ -1,0 +1,45 @@
+&CONTROL
+  calculation = 'relax',
+  prefix = 'candidate_04_VSSe_H',
+  pseudo_dir = './pseudos',
+  outdir = './tmp',
+  tstress = .true.,
+  tprnfor = .true.,
+/
+&SYSTEM
+  ibrav = 0,
+  nat = 4,
+  ntyp = 4,
+  ecutwfc = 35,
+  ecutrho = 280,
+  occupations = 'smearing',
+  smearing = 'mp',
+  degauss = 0.02,
+  assume_isolated = '2D',
+/
+&ELECTRONS
+  conv_thr = 1.0d-7,
+  mixing_beta = 0.35,
+/
+&IONS
+  ion_dynamics = 'bfgs',
+/
+&CELL
+  cell_dofree = '2Dxy',
+/
+ATOMIC_SPECIES
+  H      1.0080 H.pbe-rrkjus_psl.1.0.0.UPF
+  S     32.0600 S.pbe-n-rrkjus_psl.1.0.0.UPF
+  Se    78.9710 Se.pbe-n-rrkjus_psl.1.0.0.UPF
+  V     50.9420 V.pbe-spnl-rrkjus_psl.1.0.0.UPF
+CELL_PARAMETERS angstrom
+      3.87876899     0.00000000     0.00000000
+     -1.93938449     3.35911248     0.00000000
+      0.00000000     0.00000000    18.00000000
+ATOMIC_POSITIONS angstrom
+  V      0.00000000     0.00000000     0.00000000
+  Se     1.93938449     1.11970416     1.41953609
+  S      1.93938449     1.11970416    -1.41953609
+  H      1.93938449     1.11970416     2.51953609
+K_POINTS automatic
+  4 4 1 0 0 0

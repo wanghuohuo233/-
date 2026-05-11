@@ -1,0 +1,12 @@
+{
+  "output": "data\\expanded_2d_materials.json",
+  "records": 3967,
+  "dedupe": true,
+  "inputs": [
+    "data\\c2dm_public_2d.json",
+    "data\\jarvis_c2db_colabfit_3520.json"
+  ],
+  "source_counts": {
+    "c2db": 3967
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "candidate": "candidate_03_VNSe",
+  "status": "relax_not_converged",
+  "reason": "maximum_relax_steps_reached",
+  "relax_output": "01_relax_cf.out"
+}

@@ -1,0 +1,24 @@
+{
+  "baseline_repo": "F:\\\u673a\u5668\u5b66\u4e60\u9762\u8bd5\\baseline_material_generation",
+  "baseline_summary": {
+    "avg_abs_delta_g_h": 0.1609714934747187,
+    "avg_stability_score": 0.541537758916863,
+    "avg_synthesis_score": 0.63625,
+    "count": 24
+  },
+  "ours_summary": {
+    "avg_abs_delta_g_h": 0.0006485679943295884,
+    "avg_stability_score": 0.8821291969343269,
+    "avg_synthesis_score": 0.8925000000000001,
+    "best_objective": 0.9426750701627878
+  },
+  "ours_expanded_summary": {
+    "avg_abs_delta_g_h": 0.0008511937178807303,
+    "avg_stability_score": 0.8762485458460002,
+    "avg_synthesis_score": 0.9,
+    "best_objective": 0.9439391543374099,
+    "dataset_size": 1378,
+    "checkpoint": "checkpoints\\torch_gnn_diffusion_expanded.pt"
+  },
+  "note": "Both rows are evaluated with the same local HER/stability/synthesis surrogate for metric consistency."
+}
