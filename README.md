@@ -394,15 +394,43 @@ dG_H ~= dE_H + 0.24 eV
 
 详细说明见 [docs/dft_validation.md](docs/dft_validation.md)。
 
-本机已经用 WSL + conda-forge QE 7.5 完成部分真实验证，输出已同步到：
+本机已经用 WSL + conda-forge QE 7.5 完成真实轻量 DFT 验证，输出已同步到：
 
 ```text
 validation_outputs/qe/
 results/dft_validation_summary.json
 docs/dft_validation_results.md
+validation_outputs/qe_expanded/
+results_expanded/dft_screening_summary.json
+docs/dft_validation_expanded_results.md
 ```
 
-关键 QE 结果：
+### QE 真实验证细节
+
+本项目不只生成了 QE 输入文件，还实际运行了 Quantum ESPRESSO。验证环境和关键设置如下：
+
+```text
+QE engine: conda-forge Quantum ESPRESSO 7.5
+Runtime: WSL UbuntuQE
+Functional: PBE
+Pseudopotentials: PSLibrary RRKJUS UPF
+k-points: 4 x 4 x 1
+Clean surface cutoff: ecutwfc/ecutrho = 35/280 Ry
+H adsorption cutoff: ecutwfc/ecutrho = 35/420 Ry
+H2 reference total energy: -2.32383790 Ry
+HER approximation: DeltaG_H ~= E(surface+H)-E(surface)-0.5*E(H2)+0.24 eV
+```
+
+实际跑过的验证任务包括：
+
+- `relax`：二维材料 clean surface 结构弛豫。
+- `H adsorption relax`：在弛豫后的表面加入 H，计算吸附态能量。
+- `Gamma phonon`：Gamma 点声子，用于筛掉明显动力学不稳定结构。
+- `H2 reference`：计算 H2 参考能量，用于近似 HER `DeltaG_H`。
+
+为避免从 QE 日志中误读结构，扩展筛选脚本采用严格规则：只有 clean relax 出现正常 BFGS 收敛、明确 `Begin final coordinates` / `End final coordinates` 和 `ATOMIC_POSITIONS` 块时，才继续生成 H 吸附和 phonon；如果只是 `JOB DONE` 但达到最大步数，则标记为 `relax_not_converged`，不继续后续计算。
+
+关键 QE 结果汇总：
 
 | Candidate | Best site | Approx dG_H (eV) | Gamma phonon | Conclusion |
 |---|---|---:|---|---|
@@ -414,6 +442,16 @@ docs/dft_validation_results.md
 | Expanded VNSe rank-3 | n/a | n/a | skipped | relax_not_converged |
 | Expanded VSSe rank-4 | top | 0.771 | large imaginary modes | rejected |
 | Expanded VNSe rank-5 | n/a | n/a | skipped | relax_not_converged |
+
+扩展重训 top-5 的真实 QE 明细：
+
+| Rank | Candidate | Clean relax | H adsorption | Approx DeltaG_H (eV) | Gamma phonon min | Decision |
+|---:|---|---|---|---:|---:|---|
+| 1 | VCSe | converged | converged | 0.423 | -432.7 cm^-1 | rejected: large imaginary modes |
+| 2 | VCSe | relax_not_converged | skipped | n/a | n/a | rejected |
+| 3 | VNSe | relax_not_converged | skipped | n/a | n/a | rejected |
+| 4 | VSSe | converged | converged | 0.771 | -917.3 cm^-1 | rejected: weak HER and large imaginary modes |
+| 5 | VNSe | relax_not_converged | skipped | n/a | n/a | rejected |
 
 扩展重训 top-5 的真实 QE 轻量筛选没有得到同时满足近零 HER 与 Gamma 点动力学稳定的最终候选。结论不是代码失败，而是重要的材料科学验证信号：surrogate 排名与 PBE/QE 标签之间存在偏差，下一轮应该把 `relax_not_converged`、大虚频和真实 `DeltaG_H` 作为 hard negative / active-learning 标签回填后再重训。
 

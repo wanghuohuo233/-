@@ -36,7 +36,7 @@ def plot_her_performance(records: Iterable[MaterialRecord], path: str | Path) ->
     path = _ensure_parent(path)
     records = list(records)
     values = np.array([record.properties["delta_g_h"] for record in records], dtype=float)
-    names = [record.formula for record in records]
+    names = [f"#{idx:02d} {record.formula}" for idx, record in enumerate(records, start=1)]
     order = np.argsort(np.abs(values))
     values = values[order]
     names = [names[i] for i in order]
@@ -57,6 +57,7 @@ def plot_her_performance(records: Iterable[MaterialRecord], path: str | Path) ->
     ax2.invert_yaxis()
     ax2.set_title("Top Generated Candidates")
     ax2.set_xlabel("ΔG_H (eV)")
+    ax2.set_ylabel("Candidate rank and formula")
     fig.tight_layout()
     fig.savefig(path)
     plt.close(fig)
